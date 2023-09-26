@@ -1,9 +1,10 @@
+import Heading from '@/components/heading.component';
 import React from 'react';
 
 const HollowKinghtPage = () => {
   return (
     <>
-      <h1 className="text-4xl">HollowKinghtPage</h1>
+      <Heading>HollowKinghtPage</Heading>
       <div>This will be the review for Stardew Valley</div>
     </>
   );

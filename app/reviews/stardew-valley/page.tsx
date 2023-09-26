@@ -1,9 +1,10 @@
+import Heading from '@/components/heading.component';
 import React from 'react';
 
 const StardewVallyPage = () => {
   return (
     <>
-      <h1 className="text-4xl">StardewVallyPage</h1>
+      <Heading>StardewVallyPage</Heading>
       <div>This will be the review for Stardew Valley</div>
     </>
   );
