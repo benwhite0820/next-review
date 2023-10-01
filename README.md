@@ -6,7 +6,7 @@ This is going to build a game review app.
 - [x] [app] Routing and Layouts
 - [x] [app] Routing and Layouts
 - [x] [app] Styling
-- [ ] [app] Assets and Fonts
+- [x] [app] Assets and Fonts
 - [ ] [app] Loading Data
 - [ ] [app] Metadata
 - [ ] [app] Client Components
