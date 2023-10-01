@@ -1,5 +1,6 @@
 import NavBar from '@/components/navbar.component';
 import './globals.css';
+import { exo_2, orbitron } from './fonts';
 
 type Props = {
   children: React.ReactNode;
@@ -7,7 +8,7 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${orbitron.variable} ${exo_2.variable}`}>
       <body className="bg-orange-100 px-4 py-2 flex flex-col min-h-screen">
         <header>
           <NavBar />

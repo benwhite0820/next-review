@@ -8,9 +8,7 @@ type Props = {
 
 const Heading = ({ children, className }: Props) => {
   return (
-    <h1
-      className={`font-bold pb-3 text-2xl ${orbitron.className} ${className}`}
-    >
+    <h1 className={`font-orbitron font-bold pb-3 text-2xl ${className}`}>
       {children}
     </h1>
   );
