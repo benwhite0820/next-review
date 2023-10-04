@@ -1,4 +1,3 @@
-import { orbitron } from '@/app/fonts';
 import React from 'react';
 
 type Props = {

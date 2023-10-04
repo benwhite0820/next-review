@@ -10,7 +10,7 @@ const NavBar = () => {
             className="font-bold font-orbitron text-orange-800 hover:underline"
             href="/"
           >
-            Home
+            Indie Game
           </Link>
         </li>
         <li className="ml-auto">
