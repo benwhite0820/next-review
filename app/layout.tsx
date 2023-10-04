@@ -14,7 +14,7 @@ export default function RootLayout({ children }: Props) {
           <NavBar />
         </header>
         <main className="grow">{children}</main>
-        <footer className="border-t py-3 text-center text-xs">
+        <footer className="border-t py-3 text-center text-xs text-slate-500">
           Game data and images courtesy of{' '}
           <a
             className="text-orange-800 hover:underline"
