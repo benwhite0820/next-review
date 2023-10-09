@@ -1,5 +1,5 @@
 import Heading from '@/components/heading.component';
-import { getAllReviews } from '@/utils/review';
+import { getAllReviews } from '@/lib/review';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

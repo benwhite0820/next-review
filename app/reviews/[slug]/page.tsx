@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Heading from '@/components/heading.component';
-import { getReview } from '@/utils/review';
+import { getReview, getSlugs } from '@/lib/review';
 
 type Props = {
   params: {
@@ -8,9 +8,13 @@ type Props = {
   };
 };
 
+export const generateStaticParams = async () => {
+  const slugs = await getSlugs();
+  return slugs.map((slug) => ({ slug }));
+};
+
 const ReviewPage = async ({ params: { slug } }: Props) => {
   const { title, image, date, html } = await getReview(slug);
-
   return (
     <>
       <Heading>{title}</Heading>
