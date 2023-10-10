@@ -9,7 +9,7 @@ const Reviews = async () => {
 
   return (
     <>
-      <Heading>Review Area</Heading>
+      <Heading>Reviews</Heading>
       <ul className="flex flex-row flex-wrap gap-3">
         {value.map(({ title, image, slug }) => {
           return (
