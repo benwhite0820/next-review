@@ -1,5 +1,5 @@
 ---
-title: 'hellblade'
+title: 'Hellblade'
 image: '/images/hellblade.jpg'
 date: '2023-10-10'
 ---

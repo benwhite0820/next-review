@@ -4,6 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+export const metadata = {
+  title: 'Review',
+};
+
 const Reviews = async () => {
   const value = await getAllReviews();
 

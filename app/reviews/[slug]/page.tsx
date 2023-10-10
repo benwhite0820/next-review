@@ -13,6 +13,12 @@ export const generateStaticParams = async () => {
   return slugs.map((slug) => ({ slug }));
 };
 
+export const generateMetadata = async ({ params: { slug } }: Props) => {
+  return {
+    title: slug,
+  };
+};
+
 const ReviewPage = async ({ params: { slug } }: Props) => {
   const { title, image, date, html } = await getReview(slug);
   return (

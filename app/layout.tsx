@@ -6,6 +6,13 @@ type Props = {
   children: React.ReactNode;
 };
 
+export const metadata = {
+  title: {
+    default: 'Indie Gamer',
+    template: '%s | Indie Gamer',
+  },
+};
+
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" className={`${orbitron.variable} ${exo_2.variable}`}>
