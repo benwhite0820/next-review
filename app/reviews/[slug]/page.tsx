@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Heading from '@/components/heading.component';
 import { getReview, getSlugs } from '@/lib/review';
+import ShareLinkButton from '@/components/shareLinkButton.component';
 
 type Props = {
   params: {
@@ -24,7 +25,10 @@ const ReviewPage = async ({ params: { slug } }: Props) => {
   return (
     <>
       <Heading>{title}</Heading>
-      <p className="italic pb-2">{date}</p>
+      <div className="flex gap-3 items-baseline">
+        <p className="italic pb-2">{date}</p>
+        <ShareLinkButton />
+      </div>
       <Image
         src={image}
         alt={title}
