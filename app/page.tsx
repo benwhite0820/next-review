@@ -20,7 +20,7 @@ const Home = async () => {
               className="flex flex-col sm:flex-row"
               href={`/reviews/${slug}`}
             >
-              <Image
+              <img
                 src={image}
                 alt={`${title} image`}
                 width="320"

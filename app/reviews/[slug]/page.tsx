@@ -11,7 +11,7 @@ type Props = {
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return slugs.map(({ attributes: { slug } }) => ({ slug }));
 };
 
 export const generateMetadata = async ({ params: { slug } }: Props) => {
@@ -29,7 +29,7 @@ const ReviewPage = async ({ params: { slug } }: Props) => {
         <p className="italic pb-2">{date}</p>
         <ShareLinkButton />
       </div>
-      <Image
+      <img
         src={image}
         alt={title}
         width="640"
