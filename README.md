@@ -7,9 +7,9 @@ This is going to build a game review app.
 - [x] [app] Routing and Layouts
 - [x] [app] Styling
 - [x] [app] Assets and Fonts
-- [ ] [app] Loading Data
-- [ ] [app] Metadata
-- [ ] [app] Client Components
+- [x] [app] Loading Data
+- [x] [app] Metadata
+- [x] [app] Client Components
 - [ ] [app] Deployment
 - [ ] [app] Headless CMS
 - [ ] [app] Image Optimization
