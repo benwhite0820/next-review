@@ -21,20 +21,22 @@ export const generateMetadata = async ({ params: { slug } }: Props) => {
 };
 
 const ReviewPage = async ({ params: { slug } }: Props) => {
-  const { title, image, date, html } = await getReview(slug);
+  const { title, image, date, html, subtitle } = await getReview(slug);
   return (
     <>
       <Heading>{title}</Heading>
+      <p className="font-semibold pb-3">{subtitle}</p>
       <div className="flex gap-3 items-baseline">
         <p className="italic pb-2">{date}</p>
         <ShareLinkButton />
       </div>
-      <img
+      <Image
+        className="mb-2 rounded"
         src={image}
         alt={title}
         width="640"
         height="360"
-        className="mb-2 rounded"
+        priority
       />
       <article
         className="prose prose-slate max-w-screen-sm"

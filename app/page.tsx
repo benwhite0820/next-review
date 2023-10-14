@@ -5,35 +5,38 @@ import Link from 'next/link';
 import React from 'react';
 
 const Home = async () => {
-  const allGameCategories = await getAllReviews();
+  const allGameCategories = await getAllReviews(3);
   return (
     <>
       <Heading>Indie Gamer</Heading>
       <p className="pb-3">only the best indie games, reviewed for you</p>
-      {allGameCategories.map(({ image, title, slug }) => {
-        return (
-          <div
-            className="bg-white border rounded shadow transition-all hover:shadow-xl w-80 sm:w-full my-3"
-            key={title}
+      <ul className="flex flex-col gap-3">
+        {allGameCategories.map(({ image, title, slug, subtitle }, index) => (
+          <li
+            key={slug}
+            className="bg-white border rounded shadow w-80
+               hover:shadow-xl sm:w-full"
           >
             <Link
-              className="flex flex-col sm:flex-row"
               href={`/reviews/${slug}`}
+              className="flex flex-col sm:flex-row"
             >
-              <img
+              <Image
+                className="rounded-t sm:rounded-l sm:rounded-r-none"
                 src={image}
-                alt={`${title} image`}
+                alt=""
+                priority={index === 0}
                 width="320"
                 height="180"
-                className="rounded-t sm:rounded-l sm:rounded-r-none"
               />
-              <h2 className="font-semibold font-orbitron py-1 text-center sm:px-2">
-                {title}
-              </h2>
+              <div className="px-2 py-1 text-center sm:text-left">
+                <h2 className="font-orbitron font-semibold">{title}</h2>
+                <p className="hidden pt-2 sm:block">{subtitle}</p>
+              </div>
             </Link>
-          </div>
-        );
-      })}
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

@@ -15,7 +15,7 @@ const Reviews = async () => {
     <>
       <Heading>Reviews</Heading>
       <ul className="flex flex-row flex-wrap gap-3">
-        {value.map(({ title, image, slug }) => {
+        {value.map(({ title, image, slug }, index) => {
           return (
             <li
               className="bg-white border rounded shadow w-80 transition-all hover:shadow-xl"
@@ -23,11 +23,12 @@ const Reviews = async () => {
             >
               <Link href={`/reviews/${slug}`}>
                 <Image
+                  className="rounded-t"
                   src={image}
                   alt={title}
                   width="320"
                   height="180"
-                  className="rounded-t"
+                  priority={index === 0}
                 />
                 <h2 className="font-semibold font-orbitron py-1 text-center">
                   {title}
