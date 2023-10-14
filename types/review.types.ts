@@ -1,6 +1,7 @@
 export type Review = {
   slug: string;
   title: string;
+  subtitle: string;
   image: string;
   date: string;
   html: string;

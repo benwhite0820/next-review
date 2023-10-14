@@ -72,11 +72,12 @@ export async function fetchReviewData({
 }
 
 export function formattedReview({
-  attributes: { slug, title, image, publishedAt },
+  attributes: { slug, title, subtitle, image, publishedAt },
 }: StrapiReviewType) {
   return {
     slug,
     title,
+    subtitle,
     image: `${CMS_URL}${image.data.attributes.url}`,
     date: publishedAt.slice(0, 'yyyy-mm-dd'.length),
   };
