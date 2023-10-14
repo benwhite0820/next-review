@@ -39,15 +39,16 @@ export async function getReview(slugParam: string): Promise<Review> {
   };
 }
 
-export async function getAllReviews(): Promise<Omit<Review, 'html'>[]> {
+export async function getAllReviews(
+  pageSize: number = 6
+): Promise<Omit<Review, 'html'>[]> {
   const data = await fetchReviewData({
     sortField: ['publishedAt:desc'],
     searchField: ['slug', 'title', 'subtitle', 'publishedAt'],
     pagination: {
-      pageSize: 6,
+      pageSize,
     },
   });
 
-  console.log(data);
   return data.map((item) => formattedReview(item));
 }
