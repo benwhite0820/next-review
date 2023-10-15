@@ -10,9 +10,9 @@ This is going to build a game review app.
 - [x] [app] Loading Data
 - [x] [app] Metadata
 - [x] [app] Client Components
-- [ ] [app] Deployment
-- [ ] [app] Headless CMS
-- [ ] [app] Image Optimization
+- [x] [app] Deployment
+- [x] [app] Headless CMS
+- [x] [app] Image Optimization
 - [ ] [app] Dynamic Rendering and Revalidation
 - [ ] [app] Pagination
 - [ ] [app] Client-Side Data Fetching
