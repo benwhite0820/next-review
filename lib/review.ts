@@ -17,7 +17,7 @@ export const getSlugs = async () => {
   return data;
 };
 
-export async function getReview(slugParam: string): Promise<Review> {
+export async function getReview(slugParam: string): Promise<Review | null> {
   const [data] = await fetchReviewData({
     filterFiled: 'slug',
     filterParams: slugParam,
@@ -27,6 +27,8 @@ export async function getReview(slugParam: string): Promise<Review> {
       withCount: false,
     },
   });
+
+  if (!data) return null;
 
   const { attributes } = data;
 

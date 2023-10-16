@@ -1,3 +1,4 @@
+import Heading from '@/components/heading.component';
 import React from 'react';
 
 export const metadata = {
@@ -5,7 +6,7 @@ export const metadata = {
 };
 
 const About = () => {
-  return <div>About</div>;
+  return <Heading>About</Heading>;
 };
 
 export default About;
