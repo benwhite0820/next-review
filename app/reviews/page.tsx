@@ -1,4 +1,6 @@
 import Heading from '@/components/heading.component';
+import PaginationBar from '@/components/paginationBar.component';
+import { parsePageParam } from '@/lib/pagination';
 import { getAllReviews } from '@/lib/review';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,14 +10,22 @@ export const metadata = {
   title: 'Review',
 };
 
-const Reviews = async () => {
-  const value = await getAllReviews();
+export type Props = {
+  searchParams: {
+    page: string;
+  };
+};
+
+const Reviews = async ({ searchParams }: Props) => {
+  const page = parsePageParam(searchParams.page);
+  const { data, meta } = await getAllReviews({ page });
 
   return (
     <>
       <Heading>Reviews</Heading>
+      <PaginationBar href="/reviews" page={page} meta={meta} />
       <ul className="flex flex-row flex-wrap gap-3">
-        {value.map(({ title, image, slug }, index) => {
+        {data.map(({ title, image, slug }, index) => {
           return (
             <li
               className="bg-white border rounded shadow w-80 transition-all hover:shadow-xl"
