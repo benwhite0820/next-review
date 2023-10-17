@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const Home = async () => {
-  const allGameCategories = await getAllReviews(3);
+  const { data: allGameCategories } = await getAllReviews({ pageSize: 3 });
   return (
     <>
       <Heading>Indie Gamer</Heading>

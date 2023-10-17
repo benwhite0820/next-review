@@ -72,7 +72,7 @@ export async function fetchReviewData({
         tags: [CACHE_TAGS.REVIEW],
       },
     });
-    const { data }: StrapiReviewsApiType = await response.json();
+    const data: StrapiReviewsApiType = await response.json();
     return data;
   } catch (error) {
     throw new Error(`something went wrong, please try again`);
