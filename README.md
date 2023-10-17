@@ -13,7 +13,7 @@ This is going to build a game review app.
 - [x] [app] Deployment
 - [x] [app] Headless CMS
 - [x] [app] Image Optimization
-- [ ] [app] Dynamic Rendering and Revalidation
+- [x] [app] Dynamic Rendering and Revalidation
 - [ ] [app] Pagination
 - [ ] [app] Client-Side Data Fetching
 - [ ] [app] Deploying with External Services
