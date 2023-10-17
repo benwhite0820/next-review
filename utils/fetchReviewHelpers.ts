@@ -1,4 +1,8 @@
-import { StrapiReviewType, StrapiReviewsApiType } from '@/types/review.types';
+import {
+  CACHE_TAGS,
+  StrapiReviewType,
+  StrapiReviewsApiType,
+} from '@/types/review.types';
 import qs from 'qs';
 
 const CMS_URL = 'http://localhost:1337';
@@ -63,7 +67,11 @@ export async function fetchReviewData({
 
   try {
     const url = `${CMS_URL}/api/reviews?${queryDataUrl}`;
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: {
+        tags: [CACHE_TAGS.REVIEW],
+      },
+    });
     const { data }: StrapiReviewsApiType = await response.json();
     return data;
   } catch (error) {

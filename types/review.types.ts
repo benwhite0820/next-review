@@ -39,3 +39,7 @@ export type StrapiReviewsApiType = {
   data: StrapiReviewType[];
   meta: StrapiReviewPaginationType;
 };
+
+export enum CACHE_TAGS {
+  REVIEW = 'review',
+}
