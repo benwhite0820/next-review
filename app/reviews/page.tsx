@@ -1,5 +1,6 @@
 import Heading from '@/components/heading.component';
 import PaginationBar from '@/components/paginationBar.component';
+import SearchBox from '@/components/searchbox.component';
 import { parsePageParam } from '@/lib/pagination';
 import { getAllReviews } from '@/lib/review';
 import Image from 'next/image';
@@ -23,7 +24,10 @@ const Reviews = async ({ searchParams }: Props) => {
   return (
     <>
       <Heading>Reviews</Heading>
-      <PaginationBar href="/reviews" page={page} meta={meta} />
+      <div className="flex justify-between pb-3">
+        <PaginationBar href="/reviews" page={page} meta={meta} />
+        <SearchBox />
+      </div>
       <ul className="flex flex-row flex-wrap gap-3">
         {data.map(({ title, image, slug }, index) => {
           return (
