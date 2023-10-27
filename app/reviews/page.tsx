@@ -19,7 +19,7 @@ export type Props = {
 
 const Reviews = async ({ searchParams }: Props) => {
   const page = parsePageParam(searchParams.page);
-  const { data, meta } = await getAllReviews({ page });
+  const { data, meta } = await getAllReviews({ pageSize: 6, page });
 
   return (
     <>
