@@ -5,7 +5,7 @@ import {
 } from '@/types/review.types';
 import qs from 'qs';
 
-const CMS_URL = 'http://localhost:1337';
+const CMS_URL = process.env.CMS_URL;
 
 export async function fetchReviewData({
   filterFiled,
