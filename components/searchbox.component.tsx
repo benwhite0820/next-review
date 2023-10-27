@@ -2,40 +2,32 @@
 
 import React from 'react';
 import { Combobox } from '@headlessui/react';
+import { useDebounce } from 'use-debounce';
 import { useIsClient } from '@/hooks/customHooks';
 import { useRouter } from 'next/navigation';
 
-const dummyData = [
-  {
-    slug: 'hades-2018',
-    title: 'Hades',
-  },
-  {
-    slug: 'fall-guys',
-    title: 'Fall Guys: Ultimate Knockout',
-  },
-  {
-    slug: 'black-mesa',
-    title: 'Black Mesa',
-  },
-  {
-    slug: 'disco-elysium',
-    title: 'Disco Elysium',
-  },
-  {
-    slug: 'dead-cells',
-    title: 'Dead Cells',
-  },
-  {
-    slug: 'a-way-out-2018',
-    title: 'A Way Out',
-  },
-];
+type SearchReviewType = { slug: string; title: string };
 
 const SearchBox = () => {
   const router = useRouter();
   const isClient = useIsClient();
   const [query, setQuery] = React.useState('');
+  const [debouncedQuery] = useDebounce(query, 300);
+  const [reviews, setReviews] = React.useState<SearchReviewType[]>([]);
+
+  React.useEffect(() => {
+    if (debouncedQuery.length > 1) {
+      const controller = new AbortController();
+      (async () => {
+        const url = `/api/search?query=${encodeURIComponent(debouncedQuery)}`;
+        const response = await fetch(url, { signal: controller.signal });
+        const reviews = await response.json();
+        setReviews(reviews);
+      })();
+      return () => controller.abort();
+    }
+    setReviews([]);
+  }, [debouncedQuery]);
 
   const handleQueryOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -45,7 +37,11 @@ const SearchBox = () => {
     router.push(`/reviews/${value}`);
   };
 
-  const filtered = dummyData.filter((item) => item.title.includes(query));
+  const filtered = reviews
+    .filter((item) =>
+      item.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+    )
+    .slice(0, 5);
 
   if (!isClient) return <input placeholder="search..." />;
 
