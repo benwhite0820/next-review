@@ -1,6 +1,5 @@
 import { CACHE_TAGS } from '@/types/review.types';
 import { revalidateTag } from 'next/cache';
-import { cache } from 'react';
 
 export async function POST(request: Request) {
   const payload = await request.json();
