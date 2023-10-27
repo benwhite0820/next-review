@@ -10,6 +10,7 @@ const CMS_URL = 'http://localhost:1337';
 export async function fetchReviewData({
   filterFiled,
   filterParams,
+  filterOperator = '$eq',
   searchField,
   sortField,
   pagination,
@@ -17,6 +18,7 @@ export async function fetchReviewData({
 }: {
   filterFiled?: string;
   filterParams?: string;
+  filterOperator?: string;
   searchField: string[];
   sortField?: string[];
   pagination?: Object;
@@ -27,7 +29,7 @@ export async function fetchReviewData({
       ? {
           filters: {
             [filterFiled]: {
-              $eq: filterParams,
+              [filterOperator]: filterParams,
             },
           },
         }
